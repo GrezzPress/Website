@@ -1,0 +1,137 @@
+/* Import custom font */
+@font-face {
+    font-family: 'Routed Gothic Narrow';
+    src: url('routed-gothic-narrow.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* General Style */
+body {
+    margin: 0;
+    font-family: 'Routed Gothic Narrow', sans-serif;
+    background-color: black;
+    color: white;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    flex-wrap: wrap;
+}
+
+/* Left Column: make it narrower */
+.left-column {
+    flex: 0.8; /* Adjusted to make it narrower */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px;
+    background-color: black;
+}
+
+/* Logo Styling */
+.logo {
+    max-width: 150px;
+    margin-bottom: 20px;
+}
+
+/* Contact Section aligned to the bottom */
+.contact-section {
+    margin-top: auto;
+}
+
+/* Right Column and Carousel */
+.right-column {
+    flex: 2.2; /* Adjusted for right column to take more space */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+}
+
+.carousel {
+    width: 80%;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-item {
+    display: none;
+    text-align: center;
+}
+
+.carousel-item.active {
+    display: block;
+}
+
+.carousel-item img {
+    width: 100%; /* Image will scale with the container */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 600px; /* Maximum size for large screens */
+    max-height: 400px; /* Maximum height for large screens */
+    object-fit: contain; /* Ensure the image fits without being distorted */
+}
+
+.description {
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    /* Left column takes full width on smaller screens */
+    .left-column, .right-column {
+        flex: 1;
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box; /* Ensures padding is accounted for in width */
+    }
+
+    .right-column {
+        margin-top: 20px;
+        justify-content: flex-start;
+    }
+
+    .carousel {
+        width: 100%; /* Carousel takes full width on smaller screens */
+        height: auto;
+    }
+
+    .carousel-item img {
+        width: 100%; /* Image scales with container width */
+        height: auto; /* Maintain aspect ratio */
+        max-width: 500px; /* Reduce maximum size for tablets */
+        max-height: 400px; /* Proportional height */
+    }
+
+    /* Added padding to the text and carousel for mobile */
+    .left-column {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .right-column {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-item img {
+        width: 100%; /* Full width */
+        height: auto; /* Maintain aspect ratio */
+        max-width: 300px; /* Further reduce size for mobile */
+        max-height: 200px; /* Proportional height */
+    }
+}
