@@ -12,6 +12,7 @@ body {
     font-family: 'Routed Gothic Narrow', sans-serif;
     background-color: black;
     color: white;
+    position: relative; /* Ensure the page has a relative position for the footer */
 }
 
 .container {
@@ -39,6 +40,16 @@ body {
 /* Contact Section aligned to the bottom */
 .contact-section {
     margin-top: auto;
+}
+
+.contact-button {
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.contact-button:hover {
+    text-decoration: underline;
 }
 
 /* Right Column and Carousel */
@@ -111,8 +122,8 @@ body {
     .carousel-item img {
         width: 100%; /* Image scales with container width */
         height: auto; /* Maintain aspect ratio */
-        max-width: 500px; /* Reduce maximum size for tablets */
-        max-height: 400px; /* Proportional height */
+        max-width: 400px; /* Reduce maximum size for tablets */
+        max-height: 300px; /* Proportional height */
     }
 
     /* Added padding to the text and carousel for mobile */
@@ -133,5 +144,42 @@ body {
         height: auto; /* Maintain aspect ratio */
         max-width: 300px; /* Further reduce size for mobile */
         max-height: 200px; /* Proportional height */
+    }
+}
+
+/* Scrolling Line at the Bottom */
+.scrolling-line {
+    position: fixed; /* Stays at the bottom of the page */
+    bottom: 0;
+    width: 100%; /* Full width */
+    background-color: white; /* White background for the line */
+    color: black; /* Black text inside the scrolling line */
+    overflow: hidden; /* Hide text overflow */
+    padding: 5px 0; /* Padding for the line */
+    box-sizing: border-box;
+    z-index: 100; /* Ensure it stays on top of other elements */
+}
+
+.scrolling-text {
+    display: inline-block;
+    white-space: nowrap; /* Prevent the text from wrapping */
+    padding-left: 100%; /* Start the text outside the viewport on the right */
+    animation: scroll-text 15s linear infinite; /* Scroll effect with a 10-second loop */
+}
+
+/* Scroll Animation */
+@keyframes scroll-text {
+    0% {
+        transform: translateX(100%); /* Start from the right side */
+    }
+    100% {
+        transform: translateX(-100%); /* End at the left side */
+    }
+}
+
+/* Additional Responsive Styles if needed */
+@media (max-width: 768px) {
+    .scrolling-line {
+        padding: 5px 0; /* Adjust padding for smaller screens */
     }
 }
